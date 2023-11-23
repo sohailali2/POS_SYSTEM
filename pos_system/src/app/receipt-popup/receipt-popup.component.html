@@ -1,0 +1,74 @@
+<div class="popup-overlay"></div>
+<div class="popup" class="popup" id="myPopup">
+    <div class="receipt">
+        <label class="receipt-title">Receipt</label>
+    </div>
+    <form [formGroup]="form">
+        <div class="saleno">
+            <label>Sale No ... </label>
+            <span>{{ form.get('saleNo')?.value }}</span>
+        </div>
+
+        <div class="recept-date">
+            <label>Date {{ form.get('dateTime')?.value }}</label>
+        </div>
+    </form>
+
+    <div class="receipt-detail">
+        <div class="deatil-list">
+            <table>
+                <tr style="display: flex;">
+                    <td class="price">#SNO</td>
+                    <td class="product">Product </td>
+                    <td class="quantity"> Quantity</td>
+                    <td class="total">Total</td>
+                </tr>
+
+
+                <tr class="recept-scroll">
+                    <div *ngFor="let data of cartData;let i = index ">
+                        <td class="price">
+                            <div>{{ i + 1 }}</div>
+                        </td>
+                        <td class="product">
+                            <p>{{data.name}}</p>
+                        </td>
+                        <td class="quantity">
+                            <p>
+                                <span>{{ data.quantity }}</span>
+                            </p>
+                        </td>
+                        <td class="tableitem">
+                            <p>{{data.price * (data.quantity || 0)}} INR</p>
+                        </td>
+                    </div>
+                </tr>
+
+
+                <tr>
+                    <td>Total Items </td>
+                    <td></td>
+                    <td> {{ totalItems }} Total</td>
+                    <td style="margin-left: 5rem;">{{totalAmount}} INR</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="discount">Discount </td>
+                    <td style="margin-left: 5rem;"> {{ discountedAmount }}</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="discount">VAT tax </td>
+                    <td style="margin-left: 5rem;"> {{ taxamount }}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <button class="popup-button" (click)="onClosePopup()">Close</button>
+
+</div>

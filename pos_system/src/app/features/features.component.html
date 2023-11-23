@@ -1,0 +1,123 @@
+<div class="main">
+    <div class="lefside">
+        <table>
+            <tr class="tabletitle t1">
+                <td class="product">PRODUCTS </td>
+                <td class="price">PRICE</td>
+                <td class="quantity"> QUANTITY</td>
+                <td class="total">TOTAL</td>
+            </tr>
+            <tr class="tabletitle scroll tabletitle4" *ngIf="cartData.length > 0; else noProductsMessage">
+                <div class="tcard" *ngFor="let data of cartData;let i = index ">
+
+                    <td (click)="deleteItem(data)"> <img class="timage " src="{{data.crossicon}}" /></td>
+                    <td class="product">
+                        <p class="textcommon">{{data.name}}</p>
+                    </td>
+                    <td class="price">
+                        <p class="textcommon"> ₹ {{data.price}}</p>
+                    </td>
+                    <td class="quantity">
+                        <form>
+                            <div class="value-button" (click)="decreaseValue(data)" value="Decrease Value">-</div>
+                            <input type="number" id="number" [value]="data.quantity" readonly />
+                            <div class="value-button" (click)="increaseValue(data)" value="Increase Value">+</div>
+                        </form>
+
+                    </td>
+                    <td class="total ">
+                        <p class="textcommon">{{data.price * (data.quantity || 0)}} INR</p>
+                    </td>
+                </div>
+            </tr>
+            <ng-template #noProductsMessage>
+                <tr class="tabletitle scroll">
+                    <div class="tcard">
+                        <h2>THERE ARE NO PRODUCTS</h2>
+                    </div>
+                </tr>
+            </ng-template>
+
+
+            <div class="service">
+                <div class="tableitem">
+                    <div class="sub1">SubTotal</div>
+                    <div class="sub2">
+                        <div class="item1"> ₹ {{ subtotal }}</div>
+                        <div class="item2">{{ totalItems }} item</div>
+                    </div>
+                </div>
+                <div class="tableitem">
+                    <div class="sub1">VAT tax</div>
+                    <div class="sub2">
+                        <div class="item1">
+                            <input [(ngModel)]="taxPercentage" (input)="updateSubtotalAndTotalItems()" style="width: 101px;
+                            height: fit-content;
+                            border: none;
+                            background: #48474714;
+                            border: none;
+                            text-align: start;" type="number" id="number" />%
+                        </div>
+                        <label class="item2">{{taxamount}} INR</label>
+                    </div>
+                </div>
+                <div class="tableitem">
+                    <div class="sub1">Discount</div>
+                    <div class="sub2">
+                        <div class="item1">
+                            <input [(ngModel)]="discountPercentage" (input)="updateSubtotalAndTotalItems()" style="width: 101px; height: fit-content;  border: none;
+                            background: #48474714;
+                            border: none;
+                            text-align: start;" type="number" id="number" />%
+                        </div>
+                        <div class="item2">{{ discountedAmount}} INR</div>
+                    </div>
+                </div>
+                <div class="tableitem">
+                    <div class="sub1">Total</div>
+                    <div class="sub2">
+                        <div class="item1"><label>₹ {{totalAmount}}</label></div>
+                    </div>
+                </div>
+
+                <div class="dashboard-button">
+                    <button class="cancel" (click)="cancelSale()"> CANCEL SALE</button>
+                    <button class="process" (click)="openSalePopup()">PROCESS SALE</button>
+                    <app-receipt-popup *ngIf="showPopup" (closePopup)="hidePopup()"></app-receipt-popup>
+                </div>
+            </div>
+        </table>
+
+
+    </div>
+    <div class="rightside">
+        <div class="card-container">
+            <div class="container" *ngFor="let item of data">
+                <div class="card">
+                    <div class="slide slide1">
+                        <div class="content">
+                            <div class="icon" style="background-color: {{item.color}}">
+                                <i class="fa " aria-hidden="true">
+                                    <img src={{item.image}} alt="image" (click)="addCart(item)" />
+                                </i>
+                                <h4>
+                                    {{item.name}}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide slide2">
+                        <div class="content">
+                            <h3>
+                                {{item.category}}
+                            </h3>
+                            <p>{{item.description}}</p>
+                            <p>Price :₹{{item.price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

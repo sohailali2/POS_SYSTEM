@@ -1,0 +1,243 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.popup {
+    position: fixed;
+    width: 21%;
+    height: 65%;
+    max-height: 80vh;
+    top: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    margin-left: -12rem;
+}
+
+.receipt {
+    background-color: #040720;
+    height: 3rem;
+    display: flex;
+    color: white;
+}
+
+.receipt-title {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.saleno {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.recept-date {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.popup-button {
+    width: 22rem;
+    height: 2rem;
+    margin-left: 25px;
+    cursor: pointer;
+    margin-top: 1rem;
+
+}
+
+.receipt-detail {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.price {
+    margin-left: 10px;
+    width: 2rem;
+}
+
+.product {
+    width: 8rem;
+}
+
+.quantity {
+    width: 6rem;
+}
+
+.deatil-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table tr {
+    border-bottom: 1px solid #808080;
+    display: flex;
+}
+
+table td {
+    padding: 8px;
+}
+
+.discount {
+    margin-left: 6rem;
+}
+
+.itemtext {
+    width: 5rem;
+}
+
+.recept-scroll {
+    display: flex;
+    height: 17rem;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1920px) {
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1440px) {
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .popup {
+        position: fixed;
+        width: 30%;
+        height: 100%;
+        max-height: 80vh;
+        top: 8px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        margin-left: -22rem;
+    }
+
+    .receipt {
+        background-color: #040720;
+        height: 1rem;
+        display: flex;
+        color: white;
+    }
+
+    .receipt-detail {
+        display: flex;
+        margin-top: 5px;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .deatil-list {
+        display: flex;
+        justify-content: space-around;
+        width: 8rem;
+        margin-left: 6rem;
+    }
+
+    .popup-button {
+        width: 22rem;
+        height: 2rem;
+        margin-left: 15px;
+        cursor: pointer;
+        margin-top: 1rem;
+
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        margin-right: 7rem;
+    }
+
+    .popup {
+        position: fixed;
+        width: 44%;
+        height: 100%;
+        max-height: 80vh;
+        top: 3px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        margin-left: -10rem;
+    }
+
+    .receipt {
+        background-color: #040720;
+        height: 1rem;
+        display: flex;
+        color: white;
+    }
+
+    .receipt-detail {
+        display: flex;
+        margin-top: 5px;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .deatil-list {
+        display: flex;
+        justify-content: space-around;
+        width: 8rem;
+        margin-left: 6rem;
+    }
+
+    .popup-button {
+        width: 12rem;
+        height: 2rem;
+        margin-left: 15px;
+        cursor: pointer;
+        margin-top: 1rem;
+
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+}
